@@ -1,0 +1,28 @@
+databaseChangeLog:
+  - changeset:
+      id: 2.0
+      author: Nikita
+      comment: Create EnumType
+      changes:
+        - sqlFile:
+            path: db.changelog/sql/CreateEnumType.sql
+      rollback:
+        - sql: "DROP TYPE "
+
+  - changeset:
+      id: 2.1
+      author: Nikita
+      comment: Create enum type for deleted status
+      changes:
+        - sqlFile:
+            path: db.changelog/sql/CreateEnumTypeForOrder.sql
+
+  - changeset:
+      id: 2.2
+      author: Nikita
+      comment: Create Orders table
+      changes:
+        - sqlFile:
+            path: db.changelog/sql/CreateOdredTable.sql
+      rollback:
+          - sql: "DROP TABLE Orders"

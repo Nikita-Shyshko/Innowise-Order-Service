@@ -1,0 +1,8 @@
+databaseChangeLog:
+  - changeset:
+      id: 4
+      author: Nikita
+      comment: Create indexes
+      changes:
+        - sqlFile:
+            path: db.changelog/sql/CreateIndexes.sql

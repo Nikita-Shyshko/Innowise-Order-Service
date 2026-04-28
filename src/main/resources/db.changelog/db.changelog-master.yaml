@@ -1,0 +1,9 @@
+databaseChangeLog:
+  - include:
+      file: db.changelog/db.changelog-1-item.yaml
+  - include:
+      file: db.changelog/db.changelog-2-order.yaml
+  - include:
+      file: db.changelog/db.changelog-3-orderItem.yaml
+  - include:
+      file: db.changelog/db.cangelog-4-trigger.yaml

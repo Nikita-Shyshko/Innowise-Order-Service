@@ -1,0 +1,10 @@
+databaseChangeLog:
+  - changeset:
+      id: 3
+      author: Nikita
+      comment: Create OrderItem table
+      changes:
+        - sqlFile:
+            path: db.changelog/sql/CreateOrderItem.sql
+      rollback:
+        -sql: "DROP TABLE order_items"
