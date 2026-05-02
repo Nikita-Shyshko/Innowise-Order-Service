@@ -1,0 +1,10 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: Nikita
+      comment: Create items table
+      changes:
+        - sqlFile:
+            path: db.changelog/sql/CreateItemsTable.sql
+      rollback:
+        - sql: "DROP TABLE items;"
