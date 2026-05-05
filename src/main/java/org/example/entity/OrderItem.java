@@ -1,6 +1,5 @@
 package org.example.entity;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -45,8 +44,4 @@ public class OrderItem extends Auditing
     @Min(value = 0, message = "Price should be >= 0")
     @NotNull(message = "Price should be not null")
     private Integer price;
-
-    @Column(nullable = false)
-    @NotNull(message = "Deleted flag should be not null")
-    private Boolean deleted;
 }
