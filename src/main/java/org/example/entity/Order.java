@@ -12,7 +12,6 @@ import jakarta.persistence.Index;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -44,7 +43,7 @@ public class Order extends Auditing
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
-    private OrderStatus deleted;
+    private DeletedStatus deleted;
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<OrderItem> items = new ArrayList<>();

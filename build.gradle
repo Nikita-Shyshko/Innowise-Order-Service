@@ -29,6 +29,7 @@ repositories {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-liquibase'
     implementation 'org.springframework.boot:spring-boot-starter-webmvc'
+    implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
     compileOnly 'org.projectlombok:lombok'
     runtimeOnly 'org.postgresql:postgresql'
     annotationProcessor 'org.projectlombok:lombok'
@@ -51,6 +52,7 @@ dependencies {
     implementation("com.fasterxml.jackson.core:jackson-core:2.21.0")
     implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310'
     implementation 'org.springframework.boot:spring-boot-starter-cache'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
 
     testImplementation "org.junit.jupiter:junit-jupiter:5.8.1"
     testImplementation "org.testcontainers:testcontainers:2.0.2"
@@ -68,5 +70,11 @@ tasks.named('test') {
 tasks.named('sonar').configure {
     onlyIf {
         System.getenv('SONAR_TOKEN') != null && System.getenv('GITHUB_REF_NAME') == 'main'
+    }
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:2023.0.0"
     }
 }

@@ -6,3 +6,7 @@ spring:
   redis:
     host: ${SPRING_REDIS_HOST}
     port: ${SPRING_REDIS_PORT}
+
+user:
+  service:
+    url: ${USER_SERVICE_URL:http://localhost:8081}

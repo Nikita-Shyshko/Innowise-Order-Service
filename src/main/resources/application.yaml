@@ -24,3 +24,33 @@ spring:
       hibernate:
         id:
           new_generator_mappings: false
+
+user:
+  service:
+    url: ${USER_SERVICE_URL:http://localhost:8081}
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      userService:
+        registerHealthIndicator: true
+        slidingWindowSize: 10
+        permittedNumberOfCallsInHalfOpenState: 3
+        slidingWindowType: COUNT_BASED
+        minimumNumberOfCalls: 5
+        waitDurationInOpenState: 10s
+        failureRateThreshold: 50
+        eventConsumerBufferSize: 10
+
+feign:
+  circuitbreaker:
+    enabled: true
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+
+logging:
+  level:
+    org.example.client.UserServiceClient: DEBUG
